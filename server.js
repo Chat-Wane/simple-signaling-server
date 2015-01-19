@@ -1,4 +1,4 @@
-var PORT = 5000;
+var PORT = process.env.PORT || 5000;
 var io = require("socket.io")(PORT);
 var LRU = require('lru-cache');
 
