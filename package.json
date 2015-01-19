@@ -1,0 +1,29 @@
+{
+    "name": "simple-signaling-server",
+    "version": "0.0.1",
+    "author": "Chat-Wane <grumpy.chat.wane@gmail.com>",
+    "description": "a very simple server which aims to ease the first signaling step of WebRTC networks.",
+    "main": "./server.js",
+    "repository": {
+	"type": "git",
+	"url": "https://github.com/chat-wane/simple-signaling-server.git"
+    },
+    "keywords": [
+	"signaling",
+	"server",
+	"webrtc"
+    ],
+    "dependencies": {
+        "lru-cache": "2.5.x",
+        "socket.io": "1.3.x"
+        
+    },
+    "bundledDependencies": [
+        "lru-cache",
+        "socket.io"
+    ],
+    "license": "MIT",
+    "engines": {
+	"node": ">=0.10.35"
+    }
+}
