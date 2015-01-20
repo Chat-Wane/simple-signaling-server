@@ -15,8 +15,8 @@ $ node server.js
 
 ## Client example
 
-In the following example, we have a membership protocol which follows the
-specification of the [p2pnetwork](https://github.com/justayak/network.git).
+In the following example, we have a <i>membership</i> protocol which follows
+the specification of the [p2pnetwork](https://github.com/justayak/network.git).
 Also, we use [socket.io](http://socket.io) to dialog with the server:
 
 ```html
@@ -31,7 +31,7 @@ var initialize; // true if you want to share an access to your network
 var ourUID; // our unique local identifier to give to the other peer
 var itsUID; // the unique identifier of the peer which open the network access
 
-var socket = io(signalingAddresses, socketIOConfig);
+var socket = io(signalingAddress, socketIOConfig);
 if (initialize){
   // #1A @peer1: share an access to the network
   socket.emit("launch", ourUID);
