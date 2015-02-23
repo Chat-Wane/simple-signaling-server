@@ -7,14 +7,11 @@ var LRU = require('lru-cache');
  * retrieve the offer and create a network. Important notice: this server
  * does not hold the data forever, it must delete over time 
  */
-var socketStore = LRU(500);
-var socketNumber = 0;
+var socketStore = LRU({max:500, maxAge: 1000*60});
 
 io.on('connection', function(socket){
-    socketNumber+=1;
     process.stdout.write("C");
     socket.on("disconnect", function(){
-        socketNumber-=1;
         process.stdout.write("D");
     });
 
@@ -37,6 +34,7 @@ io.on('connection', function(socket){
         if (socketStore.has(key)){
             var targetSocket = socketStore.get(key);
             targetSocket.emit("answerResponse", message);
+            socketStore.del(key);
         } else {
             socket.disconnect();
         };
