@@ -45,18 +45,16 @@ if (initialize){
   // #1B @peer2: send the WebRTC offer in a message to peer1
   membership.launch(
     function(message){
-      setTimeout(function(){
-        socket.emit("launch", originName, ourUID, message);
-      }, 1500);
+      socket.emit("launch", originName, ourUID, message);
     }
   );
 };
 
 // #2A @peer1: receive the initial offer of peer2, sends the according answer
-socket.on("launchResponse", function(message){
+socket.on("launchResponse", function(joinerUID, message){
   membership.answer(message,
     function(answerMessage){
-      socket.emit("answer", name, answerMessage);
+      socket.emit("answer", name, joinerUID, answerMessage);
   });
 });
 
