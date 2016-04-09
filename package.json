@@ -1,6 +1,6 @@
 {
     "name": "simple-signaling-server",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "author": "Chat-Wane <grumpy.chat.wane@gmail.com>",
     "description": "a very simple server which aims to ease the first signaling step of WebRTC networks.",
     "main": "./lib/server.js",
